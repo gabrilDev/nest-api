@@ -1,6 +1,7 @@
 import {
   Injectable,
   InternalServerErrorException,
+  // eslint-disable-next-line prettier/prettier
   NotFoundException
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -21,7 +22,7 @@ export class UserService {
   }
 
   async findUserById(id: string): Promise<User> {
-    const user = this.userRepository.findOne(id);
+    const user = await this.userRepository.findOne({ where: { id } });
     if (!user) {
       throw new NotFoundException('Usuário não encontrado');
     }
@@ -29,7 +30,7 @@ export class UserService {
   }
 
   async createUser(data: CreateUserInput): Promise<User> {
-    const user = await this.userRepository.create(data);
+    const user = this.userRepository.create(data);
     const userSaved = await this.userRepository.save(user);
 
     if (!userSaved) {
