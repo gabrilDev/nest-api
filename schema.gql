@@ -28,8 +28,8 @@ input CreateUserInput {
 }
 
 input UpdateUserInput {
-  name: String!
-  email: String!
-  password: String!
-  birth: String!
+  name: String
+  email: String
+  password: String
+  birth: String
 }

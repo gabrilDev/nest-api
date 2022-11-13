@@ -13,17 +13,20 @@ export class UpdateUserInput {
   @IsString()
   @IsNotEmpty({ message: 'Este campo não pode estar vazio' })
   @IsOptional()
-  name: string;
+  name?: string;
 
   @IsEmail()
   @IsNotEmpty({ message: 'Este campo não pode estar vazio' })
-  email: string;
+  @IsOptional()
+  email?: string;
 
   @IsString()
   @IsNotEmpty({ message: 'Este campo não pode estar vazio' })
-  password: string;
+  @IsOptional()
+  password?: string;
 
   @IsDate()
   @IsNotEmpty({ message: 'Este campo não pode estar vazio' })
-  birth: string;
+  @IsOptional()
+  birth?: string;
 }
