@@ -22,6 +22,11 @@ export class UserResolver {
     return user;
   }
 
+  @Query(() => User)
+  async userByEmail(@Args('email') email: string): Promise<User> {
+    return this.userService.findUserByEmail(email);
+  }
+
   @Mutation(() => User)
   async createUser(@Args('data') data: CreateUserInput): Promise<User> {
     const user = await this.userService.createUser(data);

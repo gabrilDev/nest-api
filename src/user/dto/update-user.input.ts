@@ -1,6 +1,5 @@
 import { InputType } from '@nestjs/graphql';
 import {
-  IsDate,
   IsEmail,
   IsNotEmpty,
   IsOptional,
@@ -25,7 +24,7 @@ export class UpdateUserInput {
   @IsOptional()
   password?: string;
 
-  @IsDate()
+  @IsString()
   @IsNotEmpty({ message: 'Este campo não pode estar vazio' })
   @IsOptional()
   birth?: string;

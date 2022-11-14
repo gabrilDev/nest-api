@@ -7,7 +7,7 @@ export default class TestUtil {
     user.name = 'gabiruta';
     user.id = '1';
     user.birth = '23/02/2002';
-    user.password = '123456gd';
+    user.password = '123456gd12';
     return user;
   }
 }
